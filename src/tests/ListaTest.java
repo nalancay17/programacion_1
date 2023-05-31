@@ -80,7 +80,7 @@ public class ListaTest {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void obtenerPosicionNegativaTest() {
+	public void obtenerIndiceNegativoTest() {
 		Lista<Integer> lista = new Lista<Integer>();
 		lista.agregar(23);
 		lista.agregar(17);
@@ -89,13 +89,154 @@ public class ListaTest {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void obtenerPosicionMayorALargoTest() {
+	public void obtenerIndiceMayorALargoTest() {
 		Lista<Integer> lista = new Lista<Integer>();
 		lista.agregar(23);
 		lista.agregar(17);
 
 		int posicion = lista.largo();
 		lista.obtener(posicion);
+	}
+
+	@Test
+	public void agregarEnIndiceCeroEnListaVaciaTest() {
+		Lista<String> lista = new Lista<String>();
+		String cadena = "Perro";
+		int indice = 0;
+
+		lista.agregar(cadena, indice);
+
+		assertEquals(cadena, lista.obtener(indice));
+	}
+
+	@Test
+	public void agregarEnIndiceCeroEnListaLlenaTest() {
+		Lista<String> lista = new Lista<String>();
+		String cad1 = "Perro";
+		String cad2 = "Gallina";
+		lista.agregar(cad1);
+		int indice = 0;
+
+		lista.agregar(cad2, indice);
+
+		assertEquals(cad2, lista.obtener(indice));
+	}
+
+	@Test
+	public void agregarEnIndiceMedioEnListaLlenaTest() {
+		Lista<String> lista = new Lista<String>();
+		String cad1 = "Perro";
+		String cad2 = "Gato";
+		String cad3 = "Conejo";
+		int indice = 1;
+
+		lista.agregar(cad1);
+		lista.agregar(cad2);
+
+		lista.agregar(cad3, indice);
+
+		assertEquals(cad3, lista.obtener(1));
+	}
+
+	@Test
+	public void agregarEnIndiceAlFinalEnListaLlenaTest() {
+		Lista<String> lista = new Lista<String>();
+		String cad1 = "Perro";
+		String cad2 = "Gato";
+		String cad3 = "Conejo";
+		int indice = 2;
+
+		lista.agregar(cad1);
+		lista.agregar(cad2);
+		lista.agregar(cad3, indice);
+
+		assertEquals(cad3, lista.obtener(2));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void agregarEnIndiceMenorACeroTest() {
+		Lista<String> lista = new Lista<String>();
+		String cad = "Perro";
+
+		lista.agregar(cad, -1);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void agregarEnIndiceMayorALargoListaTest() {
+		Lista<String> lista = new Lista<String>();
+		lista.agregar("Perro");
+		lista.agregar("Gato");
+		
+		lista.agregar("Gallina", 3);
+	}
+
+	@Test
+	public void isSinDuplicadosListaVaciaTest() {
+		Lista<String> lista = new Lista<String>();
+		boolean resultado = true;
+
+		assertEquals(resultado, lista.isSinDuplicados());
+	}
+
+	@Test
+	public void isSinDuplicadosListaUnElemTest() {
+		Lista<String> lista = new Lista<String>();
+		String cad = "Gallina";
+		lista.agregar(cad);
+		boolean resultado = true;
+
+		assertEquals(resultado, lista.isSinDuplicados());
+	}
+
+	@Test
+	public void isSinDuplicadosListaLlenaTest() {
+		Lista<String> lista = new Lista<String>();
+		String cad1 = "Perro";
+		String cad2 = "Gallina";
+		String cad3 = "Gato";
+		lista.agregar(cad1);
+		lista.agregar(cad2);
+		lista.agregar(cad3);
+		lista.agregar(cad2);
+
+		boolean resultado = false;
+
+		assertEquals(resultado, lista.isSinDuplicados());
+	}
+
+	@Test
+	public void rotarDerechaListaVaciaTest() {
+		Lista<String> lista = new Lista<String>();
+
+		lista.rotarDerecha();
+
+		assertEquals(lista.largo(), 0);
+	}
+
+	@Test
+	public void rotarDerechaListaUnElemTest() {
+		Lista<String> lista = new Lista<String>();
+		String cad = "Oso panda";
+		lista.agregar(cad);
+
+		lista.rotarDerecha();
+
+		assertEquals(cad, lista.obtener(0));
+	}
+
+	@Test
+	public void rotarDerechaListaLlenaTest() {
+		Lista<String> lista = new Lista<String>();
+		String cad1 = "Perro";
+		String cad2 = "Gato";
+		String cad3 = "Oso panda";
+		lista.agregar(cad1);
+		lista.agregar(cad2);
+		lista.agregar(cad3);
+
+		lista.rotarDerecha();
+
+		assertEquals(cad3, lista.obtener(0));
 	}
 
 }
