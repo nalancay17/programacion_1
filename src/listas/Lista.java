@@ -1,6 +1,6 @@
 package listas;
 
-public class Lista<T> {
+public class Lista<T extends Comparable<T>> {
 
 	private Nodo<T> primero;
 
@@ -97,12 +97,42 @@ public class Lista<T> {
 			} else {
 				Nodo<T> actual = primero;
 				while (actual.siguiente != null && actual.siguiente.siguiente != null) {
-					System.out.println(actual.elemento);
 					actual = actual.siguiente;
 				}
 				actual.siguiente.siguiente = primero;
 				primero = actual.siguiente;
 				actual.siguiente = null;
+			}
+		}
+	}
+
+	public boolean isOrdenada() {
+		if (isVacia())
+			return true;
+		Nodo<T> actual = primero;
+		Nodo<T> siguiente = primero.siguiente;
+		while (actual != null && siguiente != null) {
+			if (actual.elemento.compareTo(siguiente.elemento) > 0)
+				return false;
+			actual = actual.siguiente;
+			siguiente = actual.siguiente;
+		}
+		return true;
+	}
+
+	public void insertarOrdenado(T elem) {
+		if (isOrdenada()) {
+			if (isVacia())
+				agregar(elem);
+			else {
+				int indice = 0;
+				Nodo<T> actual = primero;
+
+				while (actual != null && elem.compareTo(actual.elemento) > 0) {
+					actual = actual.siguiente;
+					indice++;
+				}
+				agregar(elem, indice);
 			}
 		}
 	}

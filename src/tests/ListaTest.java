@@ -239,4 +239,89 @@ public class ListaTest {
 		assertEquals(cad3, lista.obtener(0));
 	}
 
+	@Test
+	public void isOrdenadaListaVaciaTest() {
+		Lista<String> lista = new Lista<String>();
+
+		assertTrue(lista.isOrdenada());
+	}
+
+	@Test
+	public void isOrdenadaListaUnElemTest() {
+		Lista<String> lista = new Lista<String>();
+		String cad1 = "Oso panda";
+
+		lista.agregar(cad1);
+
+		assertTrue(lista.isOrdenada());
+	}
+
+	@Test
+	public void isOrdenadaListaElemsNoOrdenadosTest() {
+		Lista<String> lista = new Lista<String>();
+		String cad1 = "Perro";
+		String cad2 = "Gallina";
+		String cad3 = "Oso panda";
+
+		lista.agregar(cad1);
+		lista.agregar(cad2);
+		lista.agregar(cad3);
+
+		assertFalse(lista.isOrdenada());
+	}
+
+	@Test
+	public void isOrdenadaListaElemsOrdenadosTest() {
+		Lista<String> lista = new Lista<String>();
+		String cad1 = "Gallina";
+		String cad2 = "Oso panda";
+		String cad3 = "Perro";
+
+		lista.agregar(cad1);
+		lista.agregar(cad2);
+		lista.agregar(cad3);
+
+		assertTrue(lista.isOrdenada());
+	}
+
+	@Test
+	public void insertarOrdenadoEnListaVaciaTest() {
+		Lista<Integer> lista = new Lista<Integer>();
+		Integer n1 = 1;
+
+		lista.insertarOrdenado(n1);
+
+		assertTrue(lista.isOrdenada());
+	}
+
+	@Test
+	public void insertarOrdenadoEnListaSinRepetidosTest() {
+		Lista<Integer> lista = new Lista<Integer>();
+		Integer n1 = 23;
+		Integer n2 = 22;
+		Integer n3 = 2000;
+		Integer n4 = 1999;
+
+		lista.insertarOrdenado(n1);
+		lista.insertarOrdenado(n2);
+		lista.insertarOrdenado(n3);
+		lista.insertarOrdenado(n4);
+
+		assertTrue(lista.isOrdenada());
+	}
+
+	@Test
+	public void insertarOrdenadoEnListaConRepetidosTest() {
+		Lista<Integer> lista = new Lista<Integer>();
+		Integer n1 = 23;
+		Integer n2 = 22;
+		Integer n3 = 2000;
+
+		lista.insertarOrdenado(n3);
+		lista.insertarOrdenado(n1);
+		lista.insertarOrdenado(n2);
+		lista.insertarOrdenado(n3);
+
+		assertTrue(lista.isOrdenada());
+	}
 }
