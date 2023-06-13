@@ -35,7 +35,7 @@ public class Lista<T extends Comparable<T>> {
 	public T obtener(int indice) {
 		if (isVacia())
 			throw new NullPointerException("La lista está vacía");
-		if (indice < 0 || indice >= largo())
+		if (!existeIndice(indice))
 			throw new IllegalArgumentException("La posición no existe");
 
 		Nodo<T> actual = primero;
@@ -48,7 +48,7 @@ public class Lista<T extends Comparable<T>> {
 	}
 
 	public void agregar(T elem, int indice) {
-		if (indice < 0 || indice > largo())
+		if (!existeIndice(indice) && indice != largo())
 			throw new IllegalArgumentException("La posición no es válida");
 
 		Nodo<T> nuevo = new Nodo<T>();
@@ -136,4 +136,88 @@ public class Lista<T extends Comparable<T>> {
 			}
 		}
 	}
+
+	public static <T extends Comparable<T>>void intercambiarColas(Lista<T> l1, int pos1, Lista<T> l2, int pos2) {
+		if (l1.isVacia() || l2.isVacia())
+			throw new IllegalArgumentException("Las listas no pueden estar vacías");
+		if (!l1.existeIndice(pos1) || !l2.existeIndice(pos2))
+			throw new IllegalArgumentException("Alguna de las posiciones no existe");
+
+		Nodo<T> actual1 = l1.primero;
+		Nodo<T> actual2 = l2.primero;
+		int pos1Aux = 0;
+		int pos2Aux = 0;
+
+		while (pos1Aux < pos1) {
+			actual1 = actual1.siguiente;
+			pos1Aux++;
+		}
+		while (pos2Aux < pos2) {
+			actual2 = actual2.siguiente;
+			pos2Aux++;
+		}
+		T aux;
+		while (actual1 != null && actual2 != null) {
+			aux = actual1.elemento;
+			actual1.elemento = actual2.elemento;
+			actual2.elemento = aux;
+			actual1 = actual1.siguiente;
+			actual2 = actual2.siguiente;
+		}
+	}
+
+	@Override
+	public int hashCode() {
+	    int result = 17;
+	    Nodo<T> nodoActual = primero;
+
+	    while (nodoActual != null) {
+	        result = 31 * result + nodoActual.elemento.hashCode();
+	        nodoActual = nodoActual.siguiente;
+	    }
+	    return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+	    if (this == obj)
+	        return true;
+	    if (obj == null || getClass() != obj.getClass())
+	        return false;
+
+	    Lista<?> other = (Lista<?>) obj;
+
+	    if (this.largo() != other.largo())
+	        return false;
+
+	    Nodo<T> nodoActual = this.primero;
+	    Nodo<?> nodoOtro = other.primero;
+
+	    while (nodoActual != null && nodoOtro != null) {
+	        if (!nodoActual.elemento.equals(nodoOtro.elemento))
+	            return false;
+	        nodoActual = nodoActual.siguiente;
+	        nodoOtro = nodoOtro.siguiente;
+	    }
+	    return true;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("[");
+		Nodo<T> actual = primero;
+		while (actual != null) {
+			sb.append(actual.elemento);
+			if (actual.siguiente != null)
+				sb.append(", ");
+			actual = actual.siguiente;
+		}
+		sb.append("]");
+		return sb.toString();
+	}
+
+	private boolean existeIndice(int indice) {
+		return indice >= 0 && indice < largo();
+	}
+
 }

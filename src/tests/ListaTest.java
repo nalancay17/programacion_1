@@ -166,7 +166,7 @@ public class ListaTest {
 		Lista<String> lista = new Lista<String>();
 		lista.agregar("Perro");
 		lista.agregar("Gato");
-		
+
 		lista.agregar("Gallina", 3);
 	}
 
@@ -323,5 +323,103 @@ public class ListaTest {
 		lista.insertarOrdenado(n3);
 
 		assertTrue(lista.isOrdenada());
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void intercambiarColasUnaListaVaciaTest() {
+		Lista<String> lista1 = new Lista<String>();
+		Lista<String> lista2 = new Lista<String>();
+
+		lista1.agregar("Oso panda");
+		lista1.agregar("Perro");
+		lista1.agregar("Gato");
+
+		Lista.intercambiarColas(lista1, 1, lista2, 0);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void intercambiarColasUnaPosicionNoValidaTest() {
+		Lista<String> lista1 = new Lista<String>();
+		Lista<String> lista2 = new Lista<String>();
+
+		lista1.agregar("Oso panda");
+		lista1.agregar("Perro");
+		lista2.agregar("Gato");
+
+		Lista.intercambiarColas(lista1, 1, lista2, 2);
+	}
+
+	@Test
+	public void intercambiarColasPosicionesIgualACeroTest() {
+		Lista<Integer> lista1 = new Lista<Integer>();
+		Lista<Integer> lista2 = new Lista<Integer>();
+		lista1.agregar(2);
+		lista1.agregar(4);
+		lista1.agregar(6);
+		lista1.agregar(8);
+		lista2.agregar(1);
+		lista2.agregar(3);
+		lista2.agregar(5);
+		lista2.agregar(7);
+
+		Lista.intercambiarColas(lista1, 0, lista2, 0);
+
+		assertEquals(lista1EsperadaIntercambiarColasPosicionesIgualCero(), lista2);
+		assertEquals(lista2EsperadaIntercambiarColasPosicionesIgualCero(), lista1);
+	}
+
+	@Test
+	public void intercambiarColasPosicionesDistintasDeCeroTest() {
+		Lista<Integer> lista1 = new Lista<Integer>();
+		Lista<Integer> lista2 = new Lista<Integer>();
+		lista1.agregar(2);
+		lista1.agregar(4);
+		lista1.agregar(6);
+		lista1.agregar(8);
+		lista2.agregar(1);
+		lista2.agregar(3);
+		lista2.agregar(5);
+		lista2.agregar(7);
+
+		Lista.intercambiarColas(lista1, 2, lista2, 2);
+
+		assertEquals(lista1EsperadaIntercambiarColasPosicionesDistintasDeCero(), lista1);
+		assertEquals(lista2EsperadaIntercambiarColasPosicionesDistintasDeCero(), lista2);
+	}
+
+	private Lista<Integer> lista1EsperadaIntercambiarColasPosicionesDistintasDeCero() {
+		Lista<Integer> lista = new Lista<Integer>();
+		lista.agregar(2);
+		lista.agregar(4);
+		lista.agregar(5);
+		lista.agregar(7);
+		return lista;
+	}
+
+	private Lista<Integer> lista2EsperadaIntercambiarColasPosicionesDistintasDeCero() {
+		Lista<Integer> lista = new Lista<Integer>();
+		lista.agregar(1);
+		lista.agregar(3);
+		lista.agregar(6);
+		lista.agregar(8);
+		return lista;
+	}
+
+	private Lista<Integer> lista1EsperadaIntercambiarColasPosicionesIgualCero() {
+		Lista<Integer> lista = new Lista<Integer>();
+		lista.agregar(2);
+		lista.agregar(4);
+		lista.agregar(6);
+		lista.agregar(8);
+		return lista;
+	}
+
+	private Lista<Integer> lista2EsperadaIntercambiarColasPosicionesIgualCero() {
+		Lista<Integer> lista = new Lista<Integer>();
+		lista.agregar(1);
+		lista.agregar(3);
+		lista.agregar(5);
+		lista.agregar(7);
+		return lista;
 	}
 }
