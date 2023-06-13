@@ -197,6 +197,18 @@ public class Lista<T extends Comparable<T>> {
 		return nueva;
 	}
 
+	public Lista<T> reversa() {
+		Lista<T> nueva = new Lista<T>();
+		Nodo<T> actual = primero;
+		int it = 0;
+		while (it < largo()) {
+			nueva.agregar(actual.elemento, 0);
+			actual = actual.siguiente;
+			it++;
+		}
+		return nueva;
+	}
+
 	@Override
 	public int hashCode() {
 	    int result = 17;

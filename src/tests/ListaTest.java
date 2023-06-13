@@ -515,6 +515,32 @@ public class ListaTest {
 		assertEquals(resEsperado, resultado);
 	}
 
+	@Test
+	public void reversaListaVaciaTest() {
+		Lista<Integer> lista = new Lista<Integer>();
+		Lista<Integer> listaEsperada = new Lista<Integer>();
+
+		Lista<Integer> resultado = lista.reversa();
+
+		assertEquals(listaEsperada, resultado);
+	}
+
+	@Test
+	public void reversaListaNoVaciaTest() {
+		Lista<Integer> lista = new Lista<Integer>();
+		Lista<Integer> listaEsperada = new Lista<Integer>();
+		lista.agregar(1);
+		lista.agregar(100);
+		lista.agregar(24);
+		listaEsperada.agregar(24);
+		listaEsperada.agregar(100);
+		listaEsperada.agregar(1);
+
+		Lista<Integer> resultado = lista.reversa();
+
+		assertEquals(listaEsperada, resultado);
+	}
+
 	private Lista<Integer> lista1EsperadaIntercambiarColasPosicionesDistintasDeCero() {
 		Lista<Integer> lista = new Lista<Integer>();
 		lista.agregar(2);
