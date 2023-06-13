@@ -188,7 +188,14 @@ public class Lista<T extends Comparable<T>> {
 				actual = actual.siguiente;
 			actual.siguiente = otraLista.primero;
 		}
-	} 
+	}
+
+	public static <T extends Comparable<T>> Lista<T> concatenar(Lista<T> l1, Lista<T> l2) {
+		Lista<T> nueva = new Lista<T>();
+		nueva.anexar(l1);
+		nueva.anexar(l2);
+		return nueva;
+	}
 
 	@Override
 	public int hashCode() {

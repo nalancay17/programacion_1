@@ -485,6 +485,36 @@ public class ListaTest {
 		assertEquals(listaEsperada, lista);
 	}
 
+	@Test
+	public void concatenarListasVaciasTest() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		Lista<Integer> resEsperado = new Lista<Integer>();
+
+		Lista<Integer> resultado = Lista.concatenar(l1, l2);
+
+		assertEquals(resEsperado, resultado);
+	}
+
+	@Test
+	public void concatenarListasNoVaciasTest() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		Lista<Integer> resEsperado = new Lista<Integer>();
+		l1.agregar(1);
+		l1.agregar(2);
+		l2.agregar(3);
+		l2.agregar(4);
+		resEsperado.agregar(1);
+		resEsperado.agregar(2);
+		resEsperado.agregar(3);
+		resEsperado.agregar(4);
+
+		Lista<Integer> resultado = Lista.concatenar(l1, l2);
+
+		assertEquals(resEsperado, resultado);
+	}
+
 	private Lista<Integer> lista1EsperadaIntercambiarColasPosicionesDistintasDeCero() {
 		Lista<Integer> lista = new Lista<Integer>();
 		lista.agregar(2);
