@@ -541,6 +541,35 @@ public class ListaTest {
 		assertEquals(listaEsperada, resultado);
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void combinarListasOrdenadasUnaListaNoOrdenadaTest() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		l2.agregar(1000);
+		l2.agregar(3);
+
+		Lista.combinarListasOrdenadas(l1, l2);
+	}
+
+	@Test
+	public void combinarListasOrdenadasListasNoVaciasTest() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		Lista<Integer> listaEsperada = new Lista<Integer>();
+		l1.agregar(0);
+		l1.agregar(400);
+		l2.agregar(3);
+		l2.agregar(1000);
+		listaEsperada.agregar(0);
+		listaEsperada.agregar(3);
+		listaEsperada.agregar(400);
+		listaEsperada.agregar(1000);
+
+		Lista<Integer> resultado = Lista.combinarListasOrdenadas(l1, l2);
+
+		assertEquals(listaEsperada, resultado);
+	}
+
 	private Lista<Integer> lista1EsperadaIntercambiarColasPosicionesDistintasDeCero() {
 		Lista<Integer> lista = new Lista<Integer>();
 		lista.agregar(2);

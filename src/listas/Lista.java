@@ -209,6 +209,22 @@ public class Lista<T extends Comparable<T>> {
 		return nueva;
 	}
 
+	public static <T extends Comparable<T>> Lista<T> combinarListasOrdenadas(Lista<T> l1, Lista<T> l2) {
+		if (!l1.isOrdenada() || !l2.isOrdenada())
+			throw new IllegalArgumentException("Las listas deben estar ordenadas");
+
+		Nodo<T> actualL2 = l2.primero;
+		Lista<T> nueva = new Lista<T>();
+		nueva.anexar(l1);
+
+		while (actualL2 != null) {
+			T elemActual = actualL2.elemento;
+			nueva.insertarOrdenado(elemActual);
+			actualL2 = actualL2.siguiente;
+		}
+		return nueva;
+	}
+
 	@Override
 	public int hashCode() {
 	    int result = 17;
