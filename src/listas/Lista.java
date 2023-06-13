@@ -179,6 +179,17 @@ public class Lista<T extends Comparable<T>> {
 		return aparicionesElem;
 	}
 
+	public void anexar(Lista<T> otraLista) {
+		if (this.isVacia())
+			primero = otraLista.primero;
+		else {
+			Nodo<T> actual = primero;
+			while (actual != null && actual.siguiente != null)
+				actual = actual.siguiente;
+			actual.siguiente = otraLista.primero;
+		}
+	} 
+
 	@Override
 	public int hashCode() {
 	    int result = 17;

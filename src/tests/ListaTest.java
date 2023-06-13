@@ -426,6 +426,65 @@ public class ListaTest {
 		assertEquals(listaVacia, aparicionesElem);
 	}
 
+	@Test
+	public void anexarUnaListaNoVaciaEnListaVaciaTest() {
+		Lista<Integer> lista = new Lista<Integer>();
+		Lista<Integer> lista2 = new Lista<Integer>();
+		lista2.agregar(14);
+		lista2.agregar(3);
+		lista2.agregar(8);
+
+		lista.anexar(lista2);
+
+		assertEquals(lista2, lista);
+	}
+
+	@Test
+	public void anexarUnaListaVaciaEnListaNoVaciaTest() {
+		Lista<Integer> lista = new Lista<Integer>();
+		Lista<Integer> lista2 = new Lista<Integer>();
+		Lista<Integer> listaEsperada = new Lista<Integer>();
+		lista.agregar(14);
+		lista.agregar(3);
+		lista.agregar(8);
+		listaEsperada.agregar(14);
+		listaEsperada.agregar(3);
+		listaEsperada.agregar(8);
+
+		lista.anexar(lista2);
+
+		assertEquals(listaEsperada, lista);
+	}
+
+	public void anexarUnaListaVaciaEnListaVaciaTest() {
+		Lista<Integer> lista = new Lista<Integer>();
+		Lista<Integer> lista2 = new Lista<Integer>();
+		Lista<Integer> listaEsperada = new Lista<Integer>();
+
+		lista.anexar(lista2);
+
+		assertEquals(listaEsperada, lista);
+	}
+
+	@Test
+	public void anexarUnaListaNoVaciaEnListaNoVaciaTest() {
+		Lista<Integer> lista = new Lista<Integer>();
+		Lista<Integer> lista2 = new Lista<Integer>();
+		Lista<Integer> listaEsperada = new Lista<Integer>();
+		lista.agregar(14);
+		lista.agregar(8);
+		lista2.agregar(20);
+		lista2.agregar(1000);
+		listaEsperada.agregar(14);
+		listaEsperada.agregar(8);
+		listaEsperada.agregar(20);
+		listaEsperada.agregar(1000);
+
+		lista.anexar(lista2);
+
+		assertEquals(listaEsperada, lista);
+	}
+
 	private Lista<Integer> lista1EsperadaIntercambiarColasPosicionesDistintasDeCero() {
 		Lista<Integer> lista = new Lista<Integer>();
 		lista.agregar(2);
