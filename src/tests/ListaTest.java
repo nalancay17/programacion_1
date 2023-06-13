@@ -387,6 +387,45 @@ public class ListaTest {
 		assertEquals(lista2EsperadaIntercambiarColasPosicionesDistintasDeCero(), lista2);
 	}
 
+	@Test
+	public void buscarTodosListaVaciaTest() {
+		Lista<String> lista = new Lista<String>();
+		Lista<Integer> listaVacia = new Lista<Integer>();
+
+		Lista<Integer> aparicionesElem = lista.buscarTodos("Oso panda");
+
+		assertEquals(listaVacia, aparicionesElem);
+	}
+
+	@Test
+	public void buscarTodosSinAparicionesListaLlenaTest() {
+		Lista<String> lista = new Lista<String>();
+		Lista<Integer> listaVacia = new Lista<Integer>();
+		lista.agregar("Casa");
+		lista.agregar("Perro");
+		lista.agregar("Computadora");
+
+		Lista<Integer> aparicionesElem = lista.buscarTodos("Oso panda");
+
+		assertEquals(listaVacia, aparicionesElem);
+	}
+
+	@Test
+	public void buscarTodosConAparicionesListaLlenaTest() {
+		Lista<String> lista = new Lista<String>();
+		Lista<Integer> listaVacia = new Lista<Integer>();
+		lista.agregar("Casa");
+		lista.agregar("Perro");
+		lista.agregar("Computadora");
+		lista.agregar("Perro");
+		listaVacia.agregar(1);
+		listaVacia.agregar(3);
+
+		Lista<Integer> aparicionesElem = lista.buscarTodos("Perro");
+
+		assertEquals(listaVacia, aparicionesElem);
+	}
+
 	private Lista<Integer> lista1EsperadaIntercambiarColasPosicionesDistintasDeCero() {
 		Lista<Integer> lista = new Lista<Integer>();
 		lista.agregar(2);

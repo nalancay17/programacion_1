@@ -166,6 +166,19 @@ public class Lista<T extends Comparable<T>> {
 		}
 	}
 
+	public Lista<Integer> buscarTodos(T elem) {
+		Nodo<T> actual = primero;
+		Lista<Integer> aparicionesElem = new Lista<Integer>();
+		int pos = 0;
+		while (actual != null) {
+			if (actual.elemento.equals(elem))
+				aparicionesElem.agregar(pos);
+			actual = actual.siguiente;
+			pos++;
+		}
+		return aparicionesElem;
+	}
+
 	@Override
 	public int hashCode() {
 	    int result = 17;
