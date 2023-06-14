@@ -754,6 +754,67 @@ public class ListaTest {
 		assertEquals(resultadoEsperado, resultado);
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void restaSimetricaUnaListaConDuplicadosTest() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		l1.agregar(1);
+		l1.agregar(2);
+		l2.agregar(4);
+		l2.agregar(4);
+
+		Lista.restaSimetrica(l1, l2);
+	}
+
+	@Test
+	public void restaSimetricaPrimeraListaVacia() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		Lista<Integer> resultadoEsperado = new Lista<Integer>();
+		l2.agregar(4);
+		l2.agregar(1);
+		resultadoEsperado.agregar(4);
+		resultadoEsperado.agregar(1);
+
+		Lista<Integer> resultado = Lista.restaSimetrica(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
+	@Test
+	public void restaSimetricaSegundaListaVacia() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		Lista<Integer> resultadoEsperado = new Lista<Integer>();
+		l1.agregar(4);
+		l1.agregar(1);
+		resultadoEsperado.agregar(4);
+		resultadoEsperado.agregar(1);
+
+		Lista<Integer> resultado = Lista.restaSimetrica(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
+	@Test
+	public void restaSimetricaListasLlenas() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		Lista<Integer> resultadoEsperado = new Lista<Integer>();
+		l1.agregar(1);
+		l1.agregar(4);
+		l1.agregar(7);
+		l2.agregar(4);
+		l2.agregar(10);
+		resultadoEsperado.agregar(1);
+		resultadoEsperado.agregar(7);
+		resultadoEsperado.agregar(10);
+
+		Lista<Integer> resultado = Lista.restaSimetrica(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
 	private Lista<Integer> lista1EsperadaIntercambiarColasPosicionesDistintasDeCero() {
 		Lista<Integer> lista = new Lista<Integer>();
 		lista.agregar(2);

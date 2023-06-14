@@ -280,6 +280,13 @@ public class Lista<T extends Comparable<T>> {
 		return nueva;
 	}
 
+	public static <T extends Comparable<T>> Lista<T> restaSimetrica(Lista<T> l1, Lista<T> l2) {
+		if (!l1.isSinDuplicados() || !l2.isSinDuplicados())
+			throw new IllegalArgumentException("Dentro de cada lista no debe haber elementos duplicados");
+
+		return concatenar(resta(l1, l2), resta(l2, l1));
+	}
+
 	@Override
 	public int hashCode() {
 	    int result = 17;
