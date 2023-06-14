@@ -246,6 +246,23 @@ public class Lista<T extends Comparable<T>> {
 		return nueva;
 	}
 
+	public static <T extends Comparable<T>> Lista<T> interseccion(Lista<T> l1, Lista<T> l2) {
+		if (!l1.isSinDuplicados() || !l2.isSinDuplicados())
+			throw new IllegalArgumentException("Las lsitas no deben contener elementos repetidos dentro de ellas");
+
+		Lista<T> nueva = new Lista<T>();
+		Nodo<T> actualL1 = l1.primero;
+		T elem;
+
+		while (actualL1 != null) {
+			elem = actualL1.elemento;
+			if (l2.contieneElem(elem))
+				nueva.agregar(elem);
+			actualL1 = actualL1.siguiente;
+		}
+		return nueva;
+	}
+
 	@Override
 	public int hashCode() {
 	    int result = 17;
@@ -308,5 +325,15 @@ public class Lista<T extends Comparable<T>> {
 			actual = actual.siguiente;
 		}
 		return true;
+	}
+
+	private boolean contieneElem(T elem) {
+		Nodo<T> actual = primero;
+		while (actual != null) {
+			if (actual.elemento.equals(elem))
+				return true;
+			actual = actual.siguiente;
+		}
+		return false;
 	}
 }
