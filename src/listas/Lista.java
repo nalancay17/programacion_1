@@ -263,6 +263,23 @@ public class Lista<T extends Comparable<T>> {
 		return nueva;
 	}
 
+	public static <T extends Comparable<T>> Lista<T> resta(Lista<T> l1, Lista<T> l2) {
+		if (!l1.isSinDuplicados() || !l2.isSinDuplicados())
+			throw new IllegalArgumentException("Dentro de cada lista no debe haber elementos duplicados");
+
+		Lista<T> nueva = new Lista<T>();
+		Nodo<T> actualL1 = l1.primero;
+		T elemL1;
+
+		while (actualL1 != null) {
+			elemL1 = actualL1.elemento;
+			if (!l2.contieneElem(elemL1))
+				nueva.agregar(elemL1);
+			actualL1 = actualL1.siguiente;
+		}
+		return nueva;
+	}
+
 	@Override
 	public int hashCode() {
 	    int result = 17;
@@ -336,4 +353,5 @@ public class Lista<T extends Comparable<T>> {
 		}
 		return false;
 	}
+
 }

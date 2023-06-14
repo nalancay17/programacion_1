@@ -696,6 +696,64 @@ public class ListaTest {
 		assertEquals(listaEsperada, resultado);
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void restaUnaListaConRepetidos() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		l1.agregar(1);
+		l1.agregar(2);
+		l2.agregar(4);
+		l2.agregar(4);
+
+		Lista.resta(l1, l2);
+	}
+
+	@Test
+	public void restaPrimeraListaVacia() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		Lista<Integer> resultadoEsperado = new Lista<Integer>();
+		l2.agregar(4);
+		l2.agregar(1);
+
+		Lista<Integer> resultado = Lista.resta(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
+	@Test
+	public void restaSegundaListaVacia() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		Lista<Integer> resultadoEsperado = new Lista<Integer>();
+		l1.agregar(1);
+		l1.agregar(4);
+		resultadoEsperado.agregar(1);
+		resultadoEsperado.agregar(4);
+
+		Lista<Integer> resultado = Lista.resta(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
+	@Test
+	public void restaListasLlenas() {
+		Lista<Integer> l1 = new Lista<Integer>();
+		Lista<Integer> l2 = new Lista<Integer>();
+		Lista<Integer> resultadoEsperado = new Lista<Integer>();
+		l1.agregar(1);
+		l1.agregar(4);
+		l1.agregar(7);
+		l2.agregar(4);
+		l2.agregar(10);
+		resultadoEsperado.agregar(1);
+		resultadoEsperado.agregar(7);
+
+		Lista<Integer> resultado = Lista.resta(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
 	private Lista<Integer> lista1EsperadaIntercambiarColasPosicionesDistintasDeCero() {
 		Lista<Integer> lista = new Lista<Integer>();
 		lista.agregar(2);
