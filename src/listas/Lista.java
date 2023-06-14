@@ -225,6 +225,27 @@ public class Lista<T extends Comparable<T>> {
 		return nueva;
 	}
 
+	public Lista<T> dameElementosEnPosiciones(Lista<Integer> posiciones) {
+		if (!contieneTodosIndicesValidos(posiciones))
+			throw new IllegalArgumentException("La lista contiene posiciones no válidas");
+		if (!posiciones.isSinDuplicados())
+			throw new IllegalArgumentException("La lista no puede tener posiciones repetidas");
+		if (!posiciones.isOrdenada())
+			throw new IllegalArgumentException("La lista de posiciones debe estar ordenada");
+
+		Lista<T> nueva = new Lista<T>();
+		Nodo<Integer> actual = posiciones.primero;
+		int pos;
+		T elemEnPos;
+		while (actual != null) {
+			pos = actual.elemento;
+			elemEnPos = obtener(pos);
+			nueva.agregar(elemEnPos);
+			actual = actual.siguiente;
+		}
+		return nueva;
+	}
+
 	@Override
 	public int hashCode() {
 	    int result = 17;
@@ -279,4 +300,13 @@ public class Lista<T extends Comparable<T>> {
 		return indice >= 0 && indice < largo();
 	}
 
+	private boolean contieneTodosIndicesValidos(Lista<Integer> lista) {
+		Nodo<Integer> actual = lista.primero;
+		while (actual != null) {
+			if (!existeIndice(actual.elemento))
+				return false;
+			actual = actual.siguiente;
+		}
+		return true;
+	}
 }

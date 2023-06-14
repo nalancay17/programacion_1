@@ -570,6 +570,73 @@ public class ListaTest {
 		assertEquals(listaEsperada, resultado);
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void dameElementosEnPosicionesListaDePosicionesNoValidasTest() {
+		Lista<String> lista = new Lista<String>(); 
+		Lista<Integer> posiciones = new Lista<Integer>();
+		lista.agregar("Perro");
+		lista.agregar("Gato");
+		posiciones.agregar(1);
+		posiciones.agregar(-1);
+
+		lista.dameElementosEnPosiciones(posiciones);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void dameElementosEnPosicionesListaDePosicionesConDuplicadosTest() {
+		Lista<String> lista = new Lista<String>(); 
+		Lista<Integer> posiciones = new Lista<Integer>();
+		lista.agregar("Perro");
+		lista.agregar("Gato");
+		posiciones.agregar(1);
+		posiciones.agregar(1);
+
+		lista.dameElementosEnPosiciones(posiciones);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void dameElementosEnPosicionesListaDePosicionesNoOrdenadaTest() {
+		Lista<String> lista = new Lista<String>(); 
+		Lista<Integer> posiciones = new Lista<Integer>();
+		lista.agregar("Perro");
+		lista.agregar("Gato");
+		posiciones.agregar(1);
+		posiciones.agregar(0);
+
+		lista.dameElementosEnPosiciones(posiciones);
+	}
+
+	@Test
+	public void dameElementosEnPosicionesListaDePosicionesVaciaTest() {
+		Lista<String> lista = new Lista<String>(); 
+		Lista<Integer> posiciones = new Lista<Integer>();
+		Lista<String> listaEsperada = new Lista<String>();
+		lista.agregar("Perro");
+		lista.agregar("Gato");
+
+		Lista<String> resultado = lista.dameElementosEnPosiciones(posiciones);
+
+		assertEquals(listaEsperada, resultado);
+	}
+
+	@Test
+	public void dameElementosEnPosicionesOkTest() {
+		Lista<String> lista = new Lista<String>(); 
+		Lista<Integer> posiciones = new Lista<Integer>();
+		Lista<String> listaEsperada = new Lista<String>();
+		lista.agregar("Perro");
+		lista.agregar("Gato");
+		lista.agregar("Vaca");
+		posiciones.agregar(1);
+		posiciones.agregar(2);
+		listaEsperada.agregar("Gato");
+		listaEsperada.agregar("Vaca");
+
+		Lista<String> resultado = lista.dameElementosEnPosiciones(posiciones);
+
+		assertEquals(listaEsperada, resultado);
+	}
+
 	private Lista<Integer> lista1EsperadaIntercambiarColasPosicionesDistintasDeCero() {
 		Lista<Integer> lista = new Lista<Integer>();
 		lista.agregar(2);
