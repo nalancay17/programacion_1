@@ -40,7 +40,54 @@ public class EjerciciosRecursividad {
 		return n * factorial(n - 1);
 	}
 
+	public static int log(int n, int b) { //parcial 21/11/2018 turno mañana
+		if (n < 0 || b < 0)
+			throw new IllegalArgumentException("Los números a ingresar deben ser positivos");
+		if (n == 0 && b == 0)
+			throw new IllegalArgumentException("La división por cero no está definida");
+		if (n == 0)
+			return 0;
+		return 1 + log(n/b, b);
+	}
+
+	public static String quitarCadena(String s, String t) { //final 16/05/2019
+		if (s.length() == 0 || t.length() == 0)
+			return s;
+		if (s.charAt(0) == t.charAt(0))
+			return quitarCadena(resto(s), resto(t));
+		return s.charAt(0) + quitarCadena(resto(s), t);
+	}
+
+	public static String laMar(String s) { // parcial 11/7/2020 turno mañana
+		if (s.length() == 0)
+			return "";
+		if (esVocal(s.charAt(0)))
+			return "a" + laMar(resto(s));
+		return "" + s.charAt(0) + s.charAt(0) + laMar(resto(s));
+	}
+
+	public static String eliminarVocalesRodeadasPorConsonantes(String s) { // recuperatorio parcial 25/07/2020
+		if (s.length() <= 2)
+			return s;
+		if (!esVocal(s.charAt(0)) && esVocal(s.charAt(1)) && !esVocal(s.charAt(2)))
+			return s.charAt(0) + eliminarVocalesRodeadasPorConsonantes(resto(resto(s)));
+		return s.charAt(0) + eliminarVocalesRodeadasPorConsonantes(resto(s));
+	}
+
 	private static boolean esPar(int n) {
 		return n % 2 == 0;
 	}
+
+	private static boolean esVocal(char c) {
+		return c == 'a' || c == 'i' || c == 'u' || c== 'e' || c == 'o';
+	}
+
+	private static String resto(String s) {
+		String nuevaS = "";
+		for (int i = 1; i < s.length(); i++) {
+			nuevaS += s.charAt(i);
+		}
+		return nuevaS;
+	}
+
 }
