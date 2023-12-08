@@ -207,4 +207,112 @@ public class EjerciciosRecursividadTest {
 		assertEquals("", res6);
 	}
 
+	@Test
+	public void letrasMayoresOkTest() {
+		String s1 = "aazz";
+		String s2 = "bubu";
+		String s3 = "camas";
+		String s4 = "bus";
+		String s5 = "ala";
+		String s6 = "ajo";
+		String s7 = "luz";
+		String s8 = "";
+
+		String res1 = EjerciciosRecursividad.letrasMayores(s1, s2);
+		String res2 = EjerciciosRecursividad.letrasMayores(s3, s4);
+		String res3 = EjerciciosRecursividad.letrasMayores(s5, s6);
+		String res4 = EjerciciosRecursividad.letrasMayores(s7, s8);
+
+		assertEquals("buzz", res1);
+		assertEquals("cusas", res2);
+		assertEquals("alo", res3);
+		assertEquals("luz", res4);
+	}
+
+	@Test
+	public void eliminarVocalesYRevertirOkTest() {
+		String s1 = "toro";
+		String s2 = "risa";
+		String s3 = "mapa";
+		String s4 = "fadap";
+		String s5 = "uia";
+
+		String res1 = EjerciciosRecursividad.eliminarVocalesYRevertir(s1);
+		String res2 = EjerciciosRecursividad.eliminarVocalesYRevertir(s2);
+		String res3 = EjerciciosRecursividad.eliminarVocalesYRevertir(s3);
+		String res4 = EjerciciosRecursividad.eliminarVocalesYRevertir(s4);
+		String res5 = EjerciciosRecursividad.eliminarVocalesYRevertir(s5);
+
+		assertEquals("rt", res1);
+		assertEquals("sr", res2);
+		assertEquals("pm", res3);
+		assertEquals("pdf", res4);
+		assertEquals("", res5);
+	}
+
+	@Test
+	public void extremosOkTest() {
+		String s1 = "solemnidad";
+		String s2 = "solitario";
+		String s3 = "soledad";
+		String s4 = "soledad";
+		String s5 = "palabra";
+
+		String res1 = EjerciciosRecursividad.extremos(s1, 4, 3);
+		String res2 = EjerciciosRecursividad.extremos(s2, 3, 1);
+		String res3 = EjerciciosRecursividad.extremos(s3, 0, 4);
+		String res4 = EjerciciosRecursividad.extremos(s4, 3, 0);
+		String res5 = EjerciciosRecursividad.extremos(s5, 0, 0);
+
+		assertEquals("soledad", res1);
+		assertEquals("solo", res2);
+		assertEquals("edad", res3);
+		assertEquals("sol", res4);
+		assertEquals("", res5);
+	}
+
+	@Test
+	public void estaPrimeraOkTest() {
+		String s1 = "piedra";
+		String s2 = "cantor";
+		String s3 = "";
+		String s4 = "perro";
+		String s5 = "hielo";
+		String s6 = "holanda";
+		String s7 = "candelabro";
+		String s8 = "canario";
+		String s9 = "materia";
+		String s10 = "";
+
+		String res1 = EjerciciosRecursividad.estaPrimero(s1, s2);
+		String res2 = EjerciciosRecursividad.estaPrimero(s3, s4);
+		String res3 = EjerciciosRecursividad.estaPrimero(s5, s6);
+		String res4 = EjerciciosRecursividad.estaPrimero(s7, s8);
+		String res5 = EjerciciosRecursividad.estaPrimero(s9, s10);
+
+		assertEquals(s2, res1);
+		assertEquals(s3, res2);
+		assertEquals(s5, res3);
+		assertEquals(s8, res4);
+		assertEquals(s10, res5);
+	}
+
+	@Test
+	public void separarVocalesOkTest() {
+		String s1 = "murcielago";
+		String s2 = "manzana";
+		String s3 = "llamado";
+		String s4 = "el";
+
+		String res1 = EjerciciosRecursividad.separarVocales(s1);
+		String res2 = EjerciciosRecursividad.separarVocales(s2);
+		String res3 = EjerciciosRecursividad.separarVocales(s3);
+		String res4 = EjerciciosRecursividad.separarVocales(s4);
+
+		assertEquals("mrclgoaeiu", res1);
+		assertEquals("mnznaaa", res2);
+		assertEquals("llmdoaa", res3);
+		assertEquals("le", res4);
+	}
+
 }

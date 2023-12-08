@@ -74,6 +74,53 @@ public class EjerciciosRecursividad {
 		return s.charAt(0) + eliminarVocalesRodeadasPorConsonantes(resto(s));
 	}
 
+	public static String letrasMayores(String s1, String s2) { // parcial 12/06/2019 turno mañana
+		if (s1.length() == 0 || s2.length() == 0) {
+			if (s1.length() > s2.length())
+				return s1;
+			return s2;
+		}
+		if (s1.charAt(0) > s2.charAt(0))
+			return s1.charAt(0) + letrasMayores(resto(s1), resto(s2));
+		return s2.charAt(0) + letrasMayores(resto(s1), resto(s2));
+	}
+
+	public static String eliminarVocalesYRevertir(String s) { // parcial 14/11/2019 turno noche
+		if (s.length() == 0)
+			return "";
+		if (esVocal(s.charAt(0)))
+			return eliminarVocalesYRevertir(resto(s));
+		return eliminarVocalesYRevertir(resto(s)) + s.charAt(0);
+	}
+
+	public static String extremos(String s, int n, int m) { //recuperatorio 27/06/2019 turno noche
+		if (n <= 0 && m <= 0)
+			return "";
+		if (n != 0)
+			return s.charAt(0) + extremos(resto(s), n-1, m);
+		return s.charAt(s.length() - m) + extremos(resto(s), n, m - 1);
+	}
+
+	public static String estaPrimero(String s1, String s2) { // parcial 12/06/2019 turno tarde
+		if (s1.length() == 0)
+			return s1;
+		if (s2.length() == 0)
+			return s2;
+		if (s1.charAt(0) < s2.charAt(0))
+			return s1;
+		if (s2.charAt(0) < s1.charAt(0))
+			return s2;
+		return s1.charAt(0) + estaPrimero(resto(s1), resto(s2)); //el primer caracter es igual en ambos
+	}
+
+	public static String separarVocales(String s) { //parcial 13/11/2019 turno mañana
+		if (s.length() == 0)
+			return "";
+		if (esVocal(s.charAt(0)))
+			return separarVocales(resto(s)) + s.charAt(0);
+		return s.charAt(0) + separarVocales(resto(s));
+	}
+
 	private static boolean esPar(int n) {
 		return n % 2 == 0;
 	}
