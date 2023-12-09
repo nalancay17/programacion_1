@@ -121,12 +121,54 @@ public class EjerciciosRecursividad {
 		return s.charAt(0) + separarVocales(resto(s));
 	}
 
+	public static String intercalarDespuesDe(String s, char c, String t) { //recuperatorio 27/11/2019 turno mañana
+		if (s.length() == 0 || t.length() == 0)
+			return s;
+		if (s.charAt(0) == c)
+			return "" + s.charAt(0) + t.charAt(0) + intercalarDespuesDe(resto(s), c, resto(t));
+		return "" + s.charAt(0) + intercalarDespuesDe(resto(s), c, t);
+	}
+
+	public static boolean estaIncluida(String s1, String s2) { //parcial 13/06/2019 turno noche
+		if (s1.length() == 0 && s2.length() >= 0)
+			return true;
+		if (s1.length() > 0 && s2.length() == 0)
+			return false;
+		if (s1.charAt(0) == s2.charAt(0))
+			return estaIncluida(resto(s1), resto(s2));
+		return false || estaIncluida(s1, resto(s2)); 
+	}
+
+	public static int cantApariciones(String s, char c) { //recuperatorio 28/11/2019 turno noche
+		if (s.length() == 0)
+			return 0;
+		if (s.charAt(0) == c)
+			return 1 + cantApariciones(resto(s), c);
+		return cantApariciones(resto(s), c);
+	}
+
+	public static int prodCifras(int n) { //parcial 13/11/2019 turno tarde
+		if (n < 10)
+			return n;
+		if (n % 10 == 0)
+			return prodCifras(n / 10);
+		return n % 10 * prodCifras(n / 10);
+	}
+
+	public static String repetirChar(String s, char c, int n) { //recuperatorio 27/11/2019 turno tarde
+		if (s.length() == 0)
+			return "";
+		if (s.charAt(0) == c)
+			return repetirCaracter(c, n) + repetirChar(resto(s), c, n);
+		return s.charAt(0) + repetirChar(resto(s), c, n);
+	}
+
 	private static boolean esPar(int n) {
 		return n % 2 == 0;
 	}
 
 	private static boolean esVocal(char c) {
-		return c == 'a' || c == 'i' || c == 'u' || c== 'e' || c == 'o';
+		return c == 'a' || c == 'i' || c == 'u' || c == 'e' || c == 'o';
 	}
 
 	private static String resto(String s) {
@@ -135,6 +177,12 @@ public class EjerciciosRecursividad {
 			nuevaS += s.charAt(i);
 		}
 		return nuevaS;
+	}
+
+	private static String repetirCaracter(char c, int n) {
+		if (n == 0)
+			return "";
+		return c + repetirCaracter(c, n - 1);
 	}
 
 }

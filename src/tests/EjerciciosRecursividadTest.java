@@ -315,4 +315,123 @@ public class EjerciciosRecursividadTest {
 		assertEquals("le", res4);
 	}
 
+	@Test
+	public void intercalarDespuesDeOkTest() {
+		String s1 = "banana";
+		String s2 = "ooo";
+		String s3 = "aula";
+		String s4 = "hola";
+		String s5 = "perro";
+		String s6 = "x";
+		String s7 = "";
+		String s8 = "luz";
+		String s9 = "sol";
+		String s10 = "";
+		char c1 = 'a';
+		char c2 = 'l';
+		char c3 = 'r';
+		char c4 = 'h';
+		char c5 = 'o';
+
+		String res1 = EjerciciosRecursividad.intercalarDespuesDe(s1, c1, s2);
+		String res2 = EjerciciosRecursividad.intercalarDespuesDe(s3, c2, s4);
+		String res3 = EjerciciosRecursividad.intercalarDespuesDe(s5, c3, s6);
+		String res4 = EjerciciosRecursividad.intercalarDespuesDe(s7, c4, s8);
+		String res5 = EjerciciosRecursividad.intercalarDespuesDe(s9, c5, s10);
+
+		assertEquals("baonaonao", res1);
+		assertEquals("aulha", res2);
+		assertEquals("perxro", res3);
+		assertEquals("", res4);
+		assertEquals("sol", res5);
+	}
+
+	@Test
+	public void estaIncluidaOkTest() {
+		String s1 = "ala";
+		String s2 = "calidad";
+		String s3 = "alla";
+		String s4 = "calidad";
+		String s5 = "alla";
+		String s6 = "llave";
+		String s7 = "cajon";
+		String s8 = "callejones";
+		String s9 = "";
+		String s10 = "palabra";
+		String s11 = "ala";
+		String s12 = "almidon";
+
+		assertTrue(EjerciciosRecursividad.estaIncluida(s1, s2));
+		assertFalse(EjerciciosRecursividad.estaIncluida(s3, s4));
+		assertFalse(EjerciciosRecursividad.estaIncluida(s5, s6));
+		assertTrue(EjerciciosRecursividad.estaIncluida(s7, s8));
+		assertTrue(EjerciciosRecursividad.estaIncluida(s9, s10));
+		assertFalse(EjerciciosRecursividad.estaIncluida(s11, s12));
+	}
+
+	@Test
+	public void cantAparicionesOkTest() {
+		String s1 = "anana";
+		String s2 = "elefante";
+		String s3 = "lamina";
+		String s4 = "";
+		String s5 = "camino";
+		char c1 = 'a';
+		char c2 = 'f';
+		char c3 = 'z';
+		char c4 = 'a';
+		char c5 = 'c';
+
+		int res1 = EjerciciosRecursividad.cantApariciones(s1, c1);
+		int res2 = EjerciciosRecursividad.cantApariciones(s2, c2);
+		int res3 = EjerciciosRecursividad.cantApariciones(s3, c3);
+		int res4 = EjerciciosRecursividad.cantApariciones(s4, c4);
+		int res5 = EjerciciosRecursividad.cantApariciones(s5, c5);
+
+		assertEquals(3, res1);
+		assertEquals(1, res2);
+		assertEquals(0, res3);
+		assertEquals(0, res4);
+		assertEquals(1, res5);
+	}
+
+	@Test
+	public void prodCifrasOkTest() {
+		int n1 = 2034;
+		int n2 = 52;
+		int n3 = 9;
+		int n4 = 11020;
+
+		int res1 = EjerciciosRecursividad.prodCifras(n1);
+		int res2 = EjerciciosRecursividad.prodCifras(n2);
+		int res3 = EjerciciosRecursividad.prodCifras(n3);
+		int res4 = EjerciciosRecursividad.prodCifras(n4);
+
+		assertEquals(24, res1);
+		assertEquals(10, res2);
+		assertEquals(9, res3);
+		assertEquals(2, res4);
+	}
+
+	@Test
+	public void repetirCharOkTest() {
+		String s1 = "ameno";
+		String s2 = "caerse";
+		String s3 = "fino";
+		char c1 = 'a';
+		char c2 = 'e';
+		char c3 = 'u';
+		int n1 = 3;
+		int n2 = 4;
+		int n3 = 2;
+
+		String res1 = EjerciciosRecursividad.repetirChar(s1, c1, n1);
+		String res2 = EjerciciosRecursividad.repetirChar(s2, c2, n2);
+		String res3 = EjerciciosRecursividad.repetirChar(s3, c3, n3);
+
+		assertEquals("aaameno", res1);
+		assertEquals("caeeeerseeee", res2);
+		assertEquals("fino", res3);
+	}
+
 }
