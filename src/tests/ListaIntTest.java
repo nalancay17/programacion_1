@@ -389,434 +389,434 @@ public class ListaIntTest {
 		assertEquals(lista2EsperadaIntercambiarColasPosicionesDistintasDeCero(), lista2);
 	}
 
-//	@Test
-//	public void buscarTodosListaVaciaTest() {
-//		ListaInt lista = new ListaInt();
-//		ListaInt listaVacia = new ListaInt();
-//
-//		ListaInt aparicionesElem = lista.buscarTodos(6);
-//
-//		assertEquals(listaVacia, aparicionesElem);
-//	}
-//
-//	@Test
-//	public void buscarTodosSinAparicionesListaLlenaTest() {
-//		ListaInt lista = new ListaInt();
-//		ListaInt listaVacia = new ListaInt();
-//		lista.agregar(1);
-//		lista.agregar(173);
-//		lista.agregar(99382);
-//
-//		ListaInt aparicionesElem = lista.buscarTodos(999);
-//
-//		assertEquals(listaVacia, aparicionesElem);
-//	}
-//
-//	@Test
-//	public void buscarTodosConAparicionesListaLlenaTest() {
-//		ListaInt lista = new ListaInt();
-//		ListaInt listaVacia = new ListaInt();
-//		lista.agregar(828);
-//		lista.agregar(1);
-//		lista.agregar(82);
-//		lista.agregar(1);
-//		listaVacia.agregar(1);
-//		listaVacia.agregar(3);
-//
-//		ListaInt aparicionesElem = lista.buscarTodos(1);
-//
-//		assertEquals(listaVacia, aparicionesElem);
-//	}
-//
-//	@Test
-//	public void anexarUnaListaNoVaciaEnListaVaciaTest() {
-//		ListaInt lista = new ListaInt();
-//		ListaInt lista2 = new ListaInt();
-//		lista2.agregar(14);
-//		lista2.agregar(3);
-//		lista2.agregar(8);
-//
-//		lista.anexar(lista2);
-//
-//		assertEquals(lista2, lista);
-//	}
-//
-//	@Test
-//	public void anexarUnaListaVaciaEnListaNoVaciaTest() {
-//		ListaInt lista = new ListaInt();
-//		ListaInt lista2 = new ListaInt();
-//		ListaInt listaEsperada = new ListaInt();
-//		lista.agregar(14);
-//		lista.agregar(3);
-//		lista.agregar(8);
-//		listaEsperada.agregar(14);
-//		listaEsperada.agregar(3);
-//		listaEsperada.agregar(8);
-//
-//		lista.anexar(lista2);
-//
-//		assertEquals(listaEsperada, lista);
-//	}
-//
-//	public void anexarUnaListaVaciaEnListaVaciaTest() {
-//		ListaInt lista = new ListaInt();
-//		ListaInt lista2 = new ListaInt();
-//		ListaInt listaEsperada = new ListaInt();
-//
-//		lista.anexar(lista2);
-//
-//		assertEquals(listaEsperada, lista);
-//	}
-//
-//	@Test
-//	public void anexarUnaListaNoVaciaEnListaNoVaciaTest() {
-//		ListaInt lista = new ListaInt();
-//		ListaInt lista2 = new ListaInt();
-//		ListaInt listaEsperada = new ListaInt();
-//		lista.agregar(14);
-//		lista.agregar(8);
-//		lista2.agregar(20);
-//		lista2.agregar(1000);
-//		listaEsperada.agregar(14);
-//		listaEsperada.agregar(8);
-//		listaEsperada.agregar(20);
-//		listaEsperada.agregar(1000);
-//
-//		lista.anexar(lista2);
-//
-//		assertEquals(listaEsperada, lista);
-//	}
-//
-//	@Test
-//	public void concatenarListasVaciasTest() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt resEsperado = new ListaInt();
-//
-//		ListaInt resultado = ListaInt.concatenar(l1, l2);
-//
-//		assertEquals(resEsperado, resultado);
-//	}
-//
-//	@Test
-//	public void concatenarListasNoVaciasTest() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt resEsperado = new ListaInt();
-//		l1.agregar(1);
-//		l1.agregar(2);
-//		l2.agregar(3);
-//		l2.agregar(4);
-//		resEsperado.agregar(1);
-//		resEsperado.agregar(2);
-//		resEsperado.agregar(3);
-//		resEsperado.agregar(4);
-//
-//		ListaInt resultado = ListaInt.concatenar(l1, l2);
-//
-//		assertEquals(resEsperado, resultado);
-//	}
-//
-//	@Test
-//	public void reversaListaVaciaTest() {
-//		ListaInt lista = new ListaInt();
-//		ListaInt listaEsperada = new ListaInt();
-//
-//		ListaInt resultado = lista.reversa();
-//
-//		assertEquals(listaEsperada, resultado);
-//	}
-//
-//	@Test
-//	public void reversaListaNoVaciaTest() {
-//		ListaInt lista = new ListaInt();
-//		ListaInt listaEsperada = new ListaInt();
-//		lista.agregar(1);
-//		lista.agregar(100);
-//		lista.agregar(24);
-//		listaEsperada.agregar(24);
-//		listaEsperada.agregar(100);
-//		listaEsperada.agregar(1);
-//
-//		ListaInt resultado = lista.reversa();
-//
-//		assertEquals(listaEsperada, resultado);
-//	}
-//
-//	@Test(expected = IllegalArgumentException.class)
-//	public void combinarListasOrdenadasUnaListaNoOrdenadaTest() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		l2.agregar(1000);
-//		l2.agregar(3);
-//
-//		ListaInt.combinarListasOrdenadas(l1, l2);
-//	}
-//
-//	@Test
-//	public void combinarListasOrdenadasListasNoVaciasTest() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt listaEsperada = new ListaInt();
-//		l1.agregar(0);
-//		l1.agregar(400);
-//		l2.agregar(3);
-//		l2.agregar(1000);
-//		listaEsperada.agregar(0);
-//		listaEsperada.agregar(3);
-//		listaEsperada.agregar(400);
-//		listaEsperada.agregar(1000);
-//
-//		ListaInt resultado = ListaInt.combinarListasOrdenadas(l1, l2);
-//
-//		assertEquals(listaEsperada, resultado);
-//	}
-//
-//	@Test(expected = IllegalArgumentException.class)
-//	public void dameElementosEnPosicionesListaDePosicionesNoValidasTest() {
-//		ListaInt lista = new ListaInt(); 
-//		ListaInt posiciones = new ListaInt();
-//		lista.agregar(88);
-//		lista.agregar(107);
-//		posiciones.agregar(1);
-//		posiciones.agregar(-1);
-//
-//		lista.dameElementosEnPosiciones(posiciones);
-//	}
-//
-//	@Test(expected = IllegalArgumentException.class)
-//	public void dameElementosEnPosicionesListaDePosicionesConDuplicadosTest() {
-//		ListaInt lista = new ListaInt(); 
-//		ListaInt posiciones = new ListaInt();
-//		lista.agregar(88);
-//		lista.agregar(99);
-//		posiciones.agregar(1);
-//		posiciones.agregar(1);
-//
-//		lista.dameElementosEnPosiciones(posiciones);
-//	}
-//
-//	@Test(expected = IllegalArgumentException.class)
-//	public void dameElementosEnPosicionesListaDePosicionesNoOrdenadaTest() {
-//		ListaInt lista = new ListaInt(); 
-//		ListaInt posiciones = new ListaInt();
-//		lista.agregar(54);
-//		lista.agregar(3);
-//		posiciones.agregar(1);
-//		posiciones.agregar(0);
-//
-//		lista.dameElementosEnPosiciones(posiciones);
-//	}
-//
-//	@Test
-//	public void dameElementosEnPosicionesListaDePosicionesVaciaTest() {
-//		ListaInt lista = new ListaInt(); 
-//		ListaInt posiciones = new ListaInt();
-//		ListaInt listaEsperada = new ListaInt();
-//		lista.agregar(98);
-//		lista.agregar(44);
-//
-//		ListaInt resultado = lista.dameElementosEnPosiciones(posiciones);
-//
-//		assertEquals(listaEsperada, resultado);
-//	}
-//
-//	@Test
-//	public void dameElementosEnPosicionesOkTest() {
-//		ListaInt lista = new ListaInt(); 
-//		ListaInt posiciones = new ListaInt();
-//		ListaInt listaEsperada = new ListaInt();
-//		lista.agregar(99);
-//		lista.agregar(55);
-//		lista.agregar(7);
-//		posiciones.agregar(1);
-//		posiciones.agregar(2);
-//		listaEsperada.agregar(55);
-//		listaEsperada.agregar(7);
-//
-//		ListaInt resultado = lista.dameElementosEnPosiciones(posiciones);
-//
-//		assertEquals(listaEsperada, resultado);
-//	}
-//
-//	@Test(expected = IllegalArgumentException.class)
-//	public void interseccionUnaListaConDuplicadosTest() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		l1.agregar(1);
-//		l1.agregar(2);
-//		l2.agregar(4);
-//		l2.agregar(4);
-//
-//		ListaInt.interseccion(l1, l2);
-//	}
-//
-//	@Test
-//	public void interseccionUnaListaVaciaTest() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt listaEsperada = new ListaInt();
-//		l1.agregar(1);
-//		l1.agregar(2);
-//
-//		ListaInt resultado = ListaInt.interseccion(l1, l2);
-//
-//		assertEquals(listaEsperada, resultado);
-//	}
-//
-//	@Test
-//	public void interseccionListasNoVaciasInterseccionVaciaTest() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt listaEsperada = new ListaInt();
-//		l1.agregar(1);
-//		l1.agregar(2);
-//		l2.agregar(4);
-//		l2.agregar(5);
-//
-//		ListaInt resultado = ListaInt.interseccion(l1, l2);
-//
-//		assertEquals(listaEsperada, resultado);
-//	}
-//
-//	@Test
-//	public void interseccionListasNoVaciasInterseccionNoVaciaTest() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt listaEsperada = new ListaInt();
-//		l1.agregar(1);
-//		l1.agregar(2);
-//		l2.agregar(5);
-//		l2.agregar(1);
-//		l2.agregar(7);
-//		l2.agregar(2);
-//		listaEsperada.agregar(1);
-//		listaEsperada.agregar(2);
-//
-//		ListaInt resultado = ListaInt.interseccion(l1, l2);
-//
-//		assertEquals(listaEsperada, resultado);
-//	}
-//
-//	@Test(expected = IllegalArgumentException.class)
-//	public void restaUnaListaConRepetidos() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		l1.agregar(1);
-//		l1.agregar(2);
-//		l2.agregar(4);
-//		l2.agregar(4);
-//
-//		ListaInt.resta(l1, l2);
-//	}
-//
-//	@Test
-//	public void restaPrimeraListaVacia() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt resultadoEsperado = new ListaInt();
-//		l2.agregar(4);
-//		l2.agregar(1);
-//
-//		ListaInt resultado = ListaInt.resta(l1, l2);
-//
-//		assertEquals(resultadoEsperado, resultado);
-//	}
-//
-//	@Test
-//	public void restaSegundaListaVacia() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt resultadoEsperado = new ListaInt();
-//		l1.agregar(1);
-//		l1.agregar(4);
-//		resultadoEsperado.agregar(1);
-//		resultadoEsperado.agregar(4);
-//
-//		ListaInt resultado = ListaInt.resta(l1, l2);
-//
-//		assertEquals(resultadoEsperado, resultado);
-//	}
-//
-//	@Test
-//	public void restaListasLlenas() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt resultadoEsperado = new ListaInt();
-//		l1.agregar(1);
-//		l1.agregar(4);
-//		l1.agregar(7);
-//		l2.agregar(4);
-//		l2.agregar(10);
-//		resultadoEsperado.agregar(1);
-//		resultadoEsperado.agregar(7);
-//
-//		ListaInt resultado = ListaInt.resta(l1, l2);
-//
-//		assertEquals(resultadoEsperado, resultado);
-//	}
-//
-//	@Test(expected = IllegalArgumentException.class)
-//	public void restaSimetricaUnaListaConDuplicadosTest() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		l1.agregar(1);
-//		l1.agregar(2);
-//		l2.agregar(4);
-//		l2.agregar(4);
-//
-//		ListaInt.restaSimetrica(l1, l2);
-//	}
-//
-//	@Test
-//	public void restaSimetricaPrimeraListaVacia() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt resultadoEsperado = new ListaInt();
-//		l2.agregar(4);
-//		l2.agregar(1);
-//		resultadoEsperado.agregar(4);
-//		resultadoEsperado.agregar(1);
-//
-//		ListaInt resultado = ListaInt.restaSimetrica(l1, l2);
-//
-//		assertEquals(resultadoEsperado, resultado);
-//	}
-//
-//	@Test
-//	public void restaSimetricaSegundaListaVacia() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt resultadoEsperado = new ListaInt();
-//		l1.agregar(4);
-//		l1.agregar(1);
-//		resultadoEsperado.agregar(4);
-//		resultadoEsperado.agregar(1);
-//
-//		ListaInt resultado = ListaInt.restaSimetrica(l1, l2);
-//
-//		assertEquals(resultadoEsperado, resultado);
-//	}
-//
-//	@Test
-//	public void restaSimetricaListasLlenas() {
-//		ListaInt l1 = new ListaInt();
-//		ListaInt l2 = new ListaInt();
-//		ListaInt resultadoEsperado = new ListaInt();
-//		l1.agregar(1);
-//		l1.agregar(4);
-//		l1.agregar(7);
-//		l2.agregar(4);
-//		l2.agregar(10);
-//		resultadoEsperado.agregar(1);
-//		resultadoEsperado.agregar(7);
-//		resultadoEsperado.agregar(10);
-//
-//		ListaInt resultado = ListaInt.restaSimetrica(l1, l2);
-//
-//		assertEquals(resultadoEsperado, resultado);
-//	}
-//
+	@Test
+	public void buscarTodosListaVaciaTest() {
+		ListaInt lista = new ListaInt();
+		ListaInt listaVacia = new ListaInt();
+
+		ListaInt aparicionesElem = lista.buscarTodos(6);
+
+		assertEquals(listaVacia, aparicionesElem);
+	}
+
+	@Test
+	public void buscarTodosSinAparicionesListaLlenaTest() {
+		ListaInt lista = new ListaInt();
+		ListaInt listaVacia = new ListaInt();
+		lista.agregar(1);
+		lista.agregar(173);
+		lista.agregar(99382);
+
+		ListaInt aparicionesElem = lista.buscarTodos(999);
+
+		assertEquals(listaVacia, aparicionesElem);
+	}
+
+	@Test
+	public void buscarTodosConAparicionesListaLlenaTest() {
+		ListaInt lista = new ListaInt();
+		ListaInt listaVacia = new ListaInt();
+		lista.agregar(828);
+		lista.agregar(1);
+		lista.agregar(82);
+		lista.agregar(1);
+		listaVacia.agregar(1);
+		listaVacia.agregar(3);
+
+		ListaInt aparicionesElem = lista.buscarTodos(1);
+
+		assertEquals(listaVacia, aparicionesElem);
+	}
+
+	@Test
+	public void anexarUnaListaNoVaciaEnListaVaciaTest() {
+		ListaInt lista = new ListaInt();
+		ListaInt lista2 = new ListaInt();
+		lista2.agregar(14);
+		lista2.agregar(3);
+		lista2.agregar(8);
+
+		lista.anexar(lista2);
+
+		assertEquals(lista2, lista);
+	}
+
+	@Test
+	public void anexarUnaListaVaciaEnListaNoVaciaTest() {
+		ListaInt lista = new ListaInt();
+		ListaInt lista2 = new ListaInt();
+		ListaInt listaEsperada = new ListaInt();
+		lista.agregar(14);
+		lista.agregar(3);
+		lista.agregar(8);
+		listaEsperada.agregar(14);
+		listaEsperada.agregar(3);
+		listaEsperada.agregar(8);
+
+		lista.anexar(lista2);
+
+		assertEquals(listaEsperada, lista);
+	}
+
+	public void anexarUnaListaVaciaEnListaVaciaTest() {
+		ListaInt lista = new ListaInt();
+		ListaInt lista2 = new ListaInt();
+		ListaInt listaEsperada = new ListaInt();
+
+		lista.anexar(lista2);
+
+		assertEquals(listaEsperada, lista);
+	}
+
+	@Test
+	public void anexarUnaListaNoVaciaEnListaNoVaciaTest() {
+		ListaInt lista = new ListaInt();
+		ListaInt lista2 = new ListaInt();
+		ListaInt listaEsperada = new ListaInt();
+		lista.agregar(14);
+		lista.agregar(8);
+		lista2.agregar(20);
+		lista2.agregar(1000);
+		listaEsperada.agregar(14);
+		listaEsperada.agregar(8);
+		listaEsperada.agregar(20);
+		listaEsperada.agregar(1000);
+
+		lista.anexar(lista2);
+
+		assertEquals(listaEsperada, lista);
+	}
+
+	@Test
+	public void concatenarListasVaciasTest() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt resEsperado = new ListaInt();
+
+		ListaInt resultado = ListaInt.concatenar(l1, l2);
+
+		assertEquals(resEsperado, resultado);
+	}
+
+	@Test
+	public void concatenarListasNoVaciasTest() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt resEsperado = new ListaInt();
+		l1.agregar(1);
+		l1.agregar(2);
+		l2.agregar(3);
+		l2.agregar(4);
+		resEsperado.agregar(1);
+		resEsperado.agregar(2);
+		resEsperado.agregar(3);
+		resEsperado.agregar(4);
+
+		ListaInt resultado = ListaInt.concatenar(l1, l2);
+
+		assertEquals(resEsperado, resultado);
+	}
+
+	@Test
+	public void reversaListaVaciaTest() {
+		ListaInt lista = new ListaInt();
+		ListaInt listaEsperada = new ListaInt();
+
+		ListaInt resultado = lista.reversa();
+
+		assertEquals(listaEsperada, resultado);
+	}
+
+	@Test
+	public void reversaListaNoVaciaTest() {
+		ListaInt lista = new ListaInt();
+		ListaInt listaEsperada = new ListaInt();
+		lista.agregar(1);
+		lista.agregar(100);
+		lista.agregar(24);
+		listaEsperada.agregar(24);
+		listaEsperada.agregar(100);
+		listaEsperada.agregar(1);
+
+		ListaInt resultado = lista.reversa();
+
+		assertEquals(listaEsperada, resultado);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void combinarListasOrdenadasUnaListaNoOrdenadaTest() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		l2.agregar(1000);
+		l2.agregar(3);
+
+		ListaInt.combinarListasOrdenadas(l1, l2);
+	}
+
+	@Test
+	public void combinarListasOrdenadasListasNoVaciasTest() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt listaEsperada = new ListaInt();
+		l1.agregar(0);
+		l1.agregar(400);
+		l2.agregar(3);
+		l2.agregar(1000);
+		listaEsperada.agregar(0);
+		listaEsperada.agregar(3);
+		listaEsperada.agregar(400);
+		listaEsperada.agregar(1000);
+
+		ListaInt resultado = ListaInt.combinarListasOrdenadas(l1, l2);
+
+		assertEquals(listaEsperada, resultado);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void dameElementosEnPosicionesListaDePosicionesNoValidasTest() {
+		ListaInt lista = new ListaInt(); 
+		ListaInt posiciones = new ListaInt();
+		lista.agregar(88);
+		lista.agregar(107);
+		posiciones.agregar(1);
+		posiciones.agregar(-1);
+
+		lista.dameElementosEnPosiciones(posiciones);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void dameElementosEnPosicionesListaDePosicionesConDuplicadosTest() {
+		ListaInt lista = new ListaInt(); 
+		ListaInt posiciones = new ListaInt();
+		lista.agregar(88);
+		lista.agregar(99);
+		posiciones.agregar(1);
+		posiciones.agregar(1);
+
+		lista.dameElementosEnPosiciones(posiciones);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void dameElementosEnPosicionesListaDePosicionesNoOrdenadaTest() {
+		ListaInt lista = new ListaInt(); 
+		ListaInt posiciones = new ListaInt();
+		lista.agregar(54);
+		lista.agregar(3);
+		posiciones.agregar(1);
+		posiciones.agregar(0);
+
+		lista.dameElementosEnPosiciones(posiciones);
+	}
+
+	@Test
+	public void dameElementosEnPosicionesListaDePosicionesVaciaTest() {
+		ListaInt lista = new ListaInt(); 
+		ListaInt posiciones = new ListaInt();
+		ListaInt listaEsperada = new ListaInt();
+		lista.agregar(98);
+		lista.agregar(44);
+
+		ListaInt resultado = lista.dameElementosEnPosiciones(posiciones);
+
+		assertEquals(listaEsperada, resultado);
+	}
+
+	@Test
+	public void dameElementosEnPosicionesOkTest() {
+		ListaInt lista = new ListaInt(); 
+		ListaInt posiciones = new ListaInt();
+		ListaInt listaEsperada = new ListaInt();
+		lista.agregar(99);
+		lista.agregar(55);
+		lista.agregar(7);
+		posiciones.agregar(1);
+		posiciones.agregar(2);
+		listaEsperada.agregar(55);
+		listaEsperada.agregar(7);
+
+		ListaInt resultado = lista.dameElementosEnPosiciones(posiciones);
+
+		assertEquals(listaEsperada, resultado);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void interseccionUnaListaConDuplicadosTest() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		l1.agregar(1);
+		l1.agregar(2);
+		l2.agregar(4);
+		l2.agregar(4);
+
+		ListaInt.interseccion(l1, l2);
+	}
+
+	@Test
+	public void interseccionUnaListaVaciaTest() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt listaEsperada = new ListaInt();
+		l1.agregar(1);
+		l1.agregar(2);
+
+		ListaInt resultado = ListaInt.interseccion(l1, l2);
+
+		assertEquals(listaEsperada, resultado);
+	}
+
+	@Test
+	public void interseccionListasNoVaciasInterseccionVaciaTest() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt listaEsperada = new ListaInt();
+		l1.agregar(1);
+		l1.agregar(2);
+		l2.agregar(4);
+		l2.agregar(5);
+
+		ListaInt resultado = ListaInt.interseccion(l1, l2);
+
+		assertEquals(listaEsperada, resultado);
+	}
+
+	@Test
+	public void interseccionListasNoVaciasInterseccionNoVaciaTest() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt listaEsperada = new ListaInt();
+		l1.agregar(1);
+		l1.agregar(2);
+		l2.agregar(5);
+		l2.agregar(1);
+		l2.agregar(7);
+		l2.agregar(2);
+		listaEsperada.agregar(1);
+		listaEsperada.agregar(2);
+
+		ListaInt resultado = ListaInt.interseccion(l1, l2);
+
+		assertEquals(listaEsperada, resultado);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void restaUnaListaConRepetidos() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		l1.agregar(1);
+		l1.agregar(2);
+		l2.agregar(4);
+		l2.agregar(4);
+
+		ListaInt.resta(l1, l2);
+	}
+
+	@Test
+	public void restaPrimeraListaVacia() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt resultadoEsperado = new ListaInt();
+		l2.agregar(4);
+		l2.agregar(1);
+
+		ListaInt resultado = ListaInt.resta(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
+	@Test
+	public void restaSegundaListaVacia() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt resultadoEsperado = new ListaInt();
+		l1.agregar(1);
+		l1.agregar(4);
+		resultadoEsperado.agregar(1);
+		resultadoEsperado.agregar(4);
+
+		ListaInt resultado = ListaInt.resta(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
+	@Test
+	public void restaListasLlenas() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt resultadoEsperado = new ListaInt();
+		l1.agregar(1);
+		l1.agregar(4);
+		l1.agregar(7);
+		l2.agregar(4);
+		l2.agregar(10);
+		resultadoEsperado.agregar(1);
+		resultadoEsperado.agregar(7);
+
+		ListaInt resultado = ListaInt.resta(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void restaSimetricaUnaListaConDuplicadosTest() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		l1.agregar(1);
+		l1.agregar(2);
+		l2.agregar(4);
+		l2.agregar(4);
+
+		ListaInt.restaSimetrica(l1, l2);
+	}
+
+	@Test
+	public void restaSimetricaPrimeraListaVacia() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt resultadoEsperado = new ListaInt();
+		l2.agregar(4);
+		l2.agregar(1);
+		resultadoEsperado.agregar(4);
+		resultadoEsperado.agregar(1);
+
+		ListaInt resultado = ListaInt.restaSimetrica(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
+	@Test
+	public void restaSimetricaSegundaListaVacia() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt resultadoEsperado = new ListaInt();
+		l1.agregar(4);
+		l1.agregar(1);
+		resultadoEsperado.agregar(4);
+		resultadoEsperado.agregar(1);
+
+		ListaInt resultado = ListaInt.restaSimetrica(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
+	@Test
+	public void restaSimetricaListasLlenas() {
+		ListaInt l1 = new ListaInt();
+		ListaInt l2 = new ListaInt();
+		ListaInt resultadoEsperado = new ListaInt();
+		l1.agregar(1);
+		l1.agregar(4);
+		l1.agregar(7);
+		l2.agregar(4);
+		l2.agregar(10);
+		resultadoEsperado.agregar(1);
+		resultadoEsperado.agregar(7);
+		resultadoEsperado.agregar(10);
+
+		ListaInt resultado = ListaInt.restaSimetrica(l1, l2);
+
+		assertEquals(resultadoEsperado, resultado);
+	}
+
 	private ListaInt lista1EsperadaIntercambiarColasPosicionesDistintasDeCero() {
 		ListaInt lista = new ListaInt();
 		lista.agregar(2);
