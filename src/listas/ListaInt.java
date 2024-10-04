@@ -271,6 +271,12 @@ public class ListaInt {
 		return concatenar(resta(l1, l2), resta(l2, l1));
 	}
 
+	public void acomodarPorSigno() { //FIXME
+		if (isVacia() || primero.siguiente == null)
+			return;
+		
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("[");

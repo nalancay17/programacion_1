@@ -817,6 +817,43 @@ public class ListaIntTest {
 		assertEquals(resultadoEsperado, resultado);
 	}
 
+	@Test
+	public void acomodarPorSignoOkTest() {
+		ListaInt l1 = new ListaInt();
+		l1.agregar(2);
+		l1.agregar(-1);
+		l1.agregar(-6);
+		l1.agregar(8);
+		l1.agregar(5);
+		l1.agregar(-10);
+		ListaInt l2 = new ListaInt();
+		l2.agregar(2);
+		l2.agregar(1);
+		l2.agregar(6);
+		l2.agregar(8);
+		l2.agregar(5);
+		l2.agregar(-10);
+		ListaInt l3 = new ListaInt();
+		l3.agregar(2);
+		l3.agregar(1);
+		l3.agregar(6);
+		l3.agregar(8);
+		l3.agregar(5);
+		ListaInt l4 = new ListaInt();
+		l4.agregar(-2);
+		l4.agregar(-1);
+		l4.agregar(-6);
+		ListaInt l5 = new ListaInt();
+
+		l1.acomodarPorSigno();
+
+		assertEquals(lista1EsperadaAcomodarPorSignoOk(), l1);
+		assertEquals(lista2EsperadaAcomodarPorSignoOk(), l2);
+		assertEquals(lista3EsperadaAcomodarPorSignoOk(), l3);
+		assertEquals(lista4EsperadaAcomodarPorSignoOk(), l4);
+		assertEquals(lista5EsperadaAcomodarPorSignoOk(), l5);
+	}
+
 	private ListaInt lista1EsperadaIntercambiarColasPosicionesDistintasDeCero() {
 		ListaInt lista = new ListaInt();
 		lista.agregar(2);
@@ -850,6 +887,51 @@ public class ListaIntTest {
 		lista.agregar(3);
 		lista.agregar(5);
 		lista.agregar(7);
+		return lista;
+	}
+
+	private ListaInt lista1EsperadaAcomodarPorSignoOk() {
+		ListaInt lista = new ListaInt();
+		lista.agregar(-1);
+		lista.agregar(-6);
+		lista.agregar(-10);
+		lista.agregar(2);
+		lista.agregar(8);
+		lista.agregar(5);
+		return lista;
+	}
+
+	private ListaInt lista2EsperadaAcomodarPorSignoOk() {
+		ListaInt lista = new ListaInt();
+		lista.agregar(-10);
+		lista.agregar(6);
+		lista.agregar(1);
+		lista.agregar(2);
+		lista.agregar(8);
+		lista.agregar(5);
+		return lista;
+	}
+
+	private ListaInt lista3EsperadaAcomodarPorSignoOk() {
+		ListaInt lista = new ListaInt();
+		lista.agregar(2);
+		lista.agregar(1);
+		lista.agregar(6);
+		lista.agregar(8);
+		lista.agregar(5);
+		return lista;
+	}
+
+	private ListaInt lista4EsperadaAcomodarPorSignoOk() {
+		ListaInt lista = new ListaInt();
+		lista.agregar(-2);
+		lista.agregar(-1);
+		lista.agregar(-6);
+		return lista;
+	}
+
+	private ListaInt lista5EsperadaAcomodarPorSignoOk() {
+		ListaInt lista = new ListaInt();
 		return lista;
 	}
 
